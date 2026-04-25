@@ -1,5 +1,4 @@
-import { stat } from "fs";
-import { text } from "stream/consumers";
+
 
 
 type AddAction = {
@@ -25,9 +24,9 @@ type DeleteAction = {
 }
 
 
-type TaskAction = AddAction | ToggleAction | DeleteAction;
+export type TaskAction = AddAction | ToggleAction | DeleteAction;
 
-const taskReducer = (state: task[], action: TaskAction) => {
+export const TaskReducer = (state: Task[], action: TaskAction) => {
     switch (action.type) {
         case 'add':
             return [...state, {
