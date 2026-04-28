@@ -5,17 +5,15 @@ import { Task } from "@/types/Task";
 type AddAction = {
     type: 'add',
     payload: {
-        id: number,
         text: string;
-        completed: boolean
     }
 }
 
 type ToggleAction = {
     type: 'toggle',
-    payload: { 
+    payload: {
         id: number;
-        completed: boolean; 
+        completed: boolean;
     }
 }
 
@@ -31,12 +29,12 @@ export const TaskReducer = (state: Task[], action: TaskAction) => {
     switch (action.type) {
         case 'add':
             return [...state, {
-                id: state.length,
+                id: Date.now(),
                 text: action.payload.text,
-                completed: action.payload.completed
+                completed: false
             }]
         case 'toggle':
-            return state.map((task) => 
+            return state.map((task) =>
                 task.id === action.payload.id
                     ? { ...task, completed: !task.completed }
                     : task

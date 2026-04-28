@@ -5,7 +5,7 @@ import { TaskProvider } from "@/contexts/TaskContext";
 
 function page() {
   return (
-    <div className="container mx-auto">
+    <div>
       <TaskProvider>
         <List/>
       </TaskProvider>
